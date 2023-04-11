@@ -59,6 +59,7 @@ The graph data model below represents how the data actually looks to the graph d
 ----
 
 // Create account holders
+```
 CREATE (accountHolder1:AccountHolder { 
        		FirstName: "John", 
        		LastName: "Doe", 
@@ -154,7 +155,7 @@ RETURN *
 
 //graph
 
-'''
+```
 
 == Entity Link Analysis
 
@@ -164,6 +165,7 @@ Performing entity link analysis on the above data model is demonstrated below.
 
 [source,cypher]
 ----
+```
 MATCH 		(accountHolder:AccountHolder)-[]->(contactInformation) 
 WITH 		contactInformation, 
 			count(accountHolder) AS RingSize 
@@ -179,11 +181,12 @@ ORDER BY 	RingSize DESC
 
 //output
 //table
-
+```
 ==== Determine the financial risk of a possible fraud ring
 
 [source,cypher]
 ----
+```
 MATCH 		(accountHolder:AccountHolder)-[]->(contactInformation) 
 WITH 		contactInformation, 
 			count(accountHolder) AS RingSize 
@@ -206,3 +209,4 @@ ORDER BY 	FinancialRisk DESC
 
 //output
 //table
+```
