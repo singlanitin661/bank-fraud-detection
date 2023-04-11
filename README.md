@@ -9,7 +9,6 @@ While no fraud prevention measures can ever be perfect, significant opportunity 
 <h1>Typical Scenario</h1>
 
 While the exact details behind each first-party fraud collusion vary from operation to operation, the pattern below illustrates how fraud rings commonly operate:
-'''
 * A group of two or more people organize into a fraud ring
 * The ring shares a subset of legitimate contact information, for example phone numbers and addresses, combining them to create a number of synthetic identities
 * Ring members open accounts using these synthetic identities 
@@ -21,7 +20,7 @@ While the exact details behind each first-party fraud collusion vary from operat
 * Collections processes ensue, but agents are never able to reach the fraudster
 * The uncollectible debt is written off
 
-'''
+
 
 <h1>Explanation of Solution</h1>
 
@@ -38,7 +37,7 @@ Augmenting one’s existing fraud detection infrastructure to support ring detec
 
 Real-time graph traversals tied to the right kinds of events can help banks identify probable fraud rings: during or even before the Bust-Out occurs.
 
-'''
+
 
 <h1>Bank Fraud Graph Data Model</h1>
 
@@ -48,7 +47,7 @@ The graph data model below represents how the data actually looks to the graph d
 
 ![image](https://user-images.githubusercontent.com/78803509/231067590-55e5c73b-0e27-4f39-afc7-40a7a2832e6d.png)
 
-'''
+
 <h1>Sample Data Set</h1>
 
 ```
@@ -151,13 +150,15 @@ RETURN *
 
 ```
 
+![image](https://user-images.githubusercontent.com/78803509/231070028-ace3a427-fd98-4a8e-86d2-1371ad35f908.png)
+
+
 <h1> Entity Link Analysis</h1>
 
 Performing entity link analysis on the above data model is demonstrated below.
 
 <h4> Find account holders who share more than one piece of legitimate contact information</h4>
 
-[source,cypher]
 ```
 MATCH 		(accountHolder:AccountHolder)-[]->(contactInformation) 
 WITH 		contactInformation, 
@@ -171,9 +172,11 @@ RETURN 		AccountHolders AS FraudRing,
 			RingSize
 ORDER BY 	RingSize DESC
 ```
+![image](https://user-images.githubusercontent.com/78803509/231070125-54ecc84f-8393-4ed3-b944-49c3d8752e3b.png)
+
+
 <h4> Determine the financial risk of a possible fraud ring</h4>
 
-[source,cypher]
 ```
 MATCH 		(accountHolder:AccountHolder)-[]->(contactInformation) 
 WITH 		contactInformation, 
@@ -194,3 +197,6 @@ RETURN 		AccountHolders AS FraudRing,
 			round(FinancialRisk) as FinancialRisk
 ORDER BY 	FinancialRisk DESC
 ```
+![image](https://user-images.githubusercontent.com/78803509/231070179-25e5849a-2d47-4c87-b198-6f98525d0493.png)
+
+
