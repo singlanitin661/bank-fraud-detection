@@ -48,7 +48,7 @@ Graph databases have emerged as an ideal tool for overcoming these hurdles. Lang
 
 The graph data model below represents how the data actually looks to the graph database, and illustrates how one can find rings by simply walking the graph:
 
-image::https://raw.github.com/neo4j-contrib/gists/master/other/images/BankFraud-1.png[Bank Fraud]
+![image](https://user-images.githubusercontent.com/78803509/231067590-55e5c73b-0e27-4f39-afc7-40a7a2832e6d.png)
 
 '''
 
