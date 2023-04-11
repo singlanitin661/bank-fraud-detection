@@ -51,7 +51,7 @@ The graph data model below represents how the data actually looks to the graph d
 '''
 <h1>Sample Data Set</h1>
 
-----
+```
 [source,cypher]
 
 
@@ -148,19 +148,16 @@ CREATE (phoneNumber2:PhoneNumber {
 			PhoneNumber: "555-555-1234" })<-[:HAS_PHONENUMBER]-(accountHolder3)
 
 RETURN *
-----
-
 
 ```
 
-== Entity Link Analysis
+<h1> Entity Link Analysis</h1>
 
 Performing entity link analysis on the above data model is demonstrated below.
 
-==== Find account holders who share more than one piece of legitimate contact information
+<h4> Find account holders who share more than one piece of legitimate contact information</h4>
 
 [source,cypher]
-----
 ```
 MATCH 		(accountHolder:AccountHolder)-[]->(contactInformation) 
 WITH 		contactInformation, 
@@ -173,15 +170,10 @@ RETURN 		AccountHolders AS FraudRing,
 			labels(contactInformation) AS ContactType, 
 			RingSize
 ORDER BY 	RingSize DESC
-----
-
-//output
-//table
 ```
-==== Determine the financial risk of a possible fraud ring
+<h4> Determine the financial risk of a possible fraud ring</h4>
 
 [source,cypher]
-----
 ```
 MATCH 		(accountHolder:AccountHolder)-[]->(contactInformation) 
 WITH 		contactInformation, 
@@ -201,8 +193,4 @@ RETURN 		AccountHolders AS FraudRing,
 			RingSize, 
 			round(FinancialRisk) as FinancialRisk
 ORDER BY 	FinancialRisk DESC
-----
-
-//output
-//table
 ```
