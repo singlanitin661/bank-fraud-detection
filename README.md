@@ -2,16 +2,14 @@
 
 Banks and Insurance companies lose billions of dollars every year to fraud. Traditional methods of fraud detection play an important role in minimizing these losses. However increasingly sophisticated fraudsters have developed a variety of ways to elude discovery, both by working together, and by leveraging various other means of constructing false identities. 
 
-'''
-
-== Explanation of Scenario
+<h1> Explanation of Scenario </h1>
 
 While no fraud prevention measures can ever be perfect, significant opportunity for improvement lies in looking beyond the individual data points, to the connections that link them. Oftentimes these connections go unnoticed until it is too late— something that is unfortunate, as these connections oftentimes hold the best clues.
 
-=== Typical Scenario
+<h1>Typical Scenario</h1>
 
 While the exact details behind each first-party fraud collusion vary from operation to operation, the pattern below illustrates how fraud rings commonly operate:
-
+'''
 * A group of two or more people organize into a fraud ring
 * The ring shares a subset of legitimate contact information, for example phone numbers and addresses, combining them to create a number of synthetic identities
 * Ring members open accounts using these synthetic identities 
@@ -25,11 +23,11 @@ While the exact details behind each first-party fraud collusion vary from operat
 
 '''
 
-== Explanation of Solution
+<h1>Explanation of Solution</h1>
 
 Graph databases offer new methods of uncovering fraud rings and other sophisticated scams with a high-level of accuracy, and are capable of stopping advanced fraud scenarios in real-time.
 
-=== How Graph Databases Can Help
+<h1>How Graph Databases Can Help</h1>
 
 Augmenting one’s existing fraud detection infrastructure to support ring detection can be done by running appropriate entity link analysis queries using a graph database, and running checks during key stages in the customer & account lifecycle, such as:
 
@@ -42,7 +40,7 @@ Real-time graph traversals tied to the right kinds of events can help banks iden
 
 '''
 
-== Bank Fraud Graph Data Model
+<h1>Bank Fraud Graph Data Model</h1>
 
 Graph databases have emerged as an ideal tool for overcoming these hurdles. Languages like Cypher provide a simple semantic for detecting rings in the graph, navigating connections in memory, in real time. 
 
@@ -51,15 +49,14 @@ The graph data model below represents how the data actually looks to the graph d
 ![image](https://user-images.githubusercontent.com/78803509/231067590-55e5c73b-0e27-4f39-afc7-40a7a2832e6d.png)
 
 '''
+<h1>Sample Data Set</h1>
 
-== Sample Data Set
-
-//setup
-[source,cypher]
 ----
+[source,cypher]
+
 
 // Create account holders
-```
+
 CREATE (accountHolder1:AccountHolder { 
        		FirstName: "John", 
        		LastName: "Doe", 
@@ -153,7 +150,6 @@ CREATE (phoneNumber2:PhoneNumber {
 RETURN *
 ----
 
-//graph
 
 ```
 
